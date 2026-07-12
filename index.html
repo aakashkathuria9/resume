@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aakash Kathuria - Resume</title>
+  <title>Aakash Kathuria — Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -12,8 +12,8 @@
       --ink:      #0f1117;
       --muted:    #5a5f6e;
       --rule:     #d4d7df;
-      --accent:   #1a3d6e;   /* deep navy - finance/consulting weight */
-      --accent2:  #c8a96e;   /* antique gold - prestige signal */
+      --accent:   #1a3d6e;   /* deep navy — finance/consulting weight */
+      --accent2:  #c8a96e;   /* antique gold — prestige signal */
       --surface:  #f7f6f3;
       --white:    #ffffff;
       --mono:     'DM Mono', monospace;
@@ -35,10 +35,71 @@
     }
 
     /* ── LAYOUT ───────────────────────────────────────────── */
-    .page {
-      max-width: 860px;
+    .outer {
+      display: flex;
+      align-items: flex-start;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 0 24px;
+    }
+
+    .sidenav {
+      position: sticky;
+      top: 48px;
+      width: 190px;
+      flex-shrink: 0;
+      margin-right: 52px;
+      padding-top: 72px;
+    }
+
+    .sidenav-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .sidenav ul {
+      list-style: none;
+      border-left: 1px solid var(--rule);
+    }
+
+    .sidenav ul li a {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.70rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 0 6px 14px;
+      border-left: 2px solid transparent;
+      margin-left: -1px;
+      transition: color 0.15s, border-color 0.15s;
+      line-height: 1.4;
+    }
+
+    .sidenav ul li a:hover {
+      color: var(--accent);
+      border-left-color: var(--rule);
+    }
+
+    .sidenav ul li a.active {
+      color: var(--accent);
+      border-left-color: var(--accent2);
+      font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .sidenav { display: none; }
+      .outer { padding: 0 16px; }
+    }
+
+    .page {
+      flex: 1;
+      min-width: 0;
+      max-width: 860px;
+      padding: 0 0 80px;
     }
 
     /* ── HEADER ───────────────────────────────────────────── */
@@ -180,12 +241,15 @@
     }
 
     .role-section-title {
-      font-size: 0.82rem;
+      font-family: var(--serif);
+      font-size: 1.08rem;
       font-weight: 500;
-      letter-spacing: 0.4px;
+      font-style: italic;
       color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      border-left: 3px solid var(--accent2);
+      padding-left: 10px;
+      margin-top: 4px;
+      margin-bottom: 12px;
     }
 
     .items {
@@ -202,7 +266,7 @@
     }
 
     .items > li::before {
-      content: '-';
+      content: '—';
       position: absolute;
       left: 0;
       color: var(--accent2);
@@ -443,6 +507,21 @@
   </style>
 </head>
 <body>
+<div class="outer">
+
+  <!-- ══ SIDE NAV ════════════════════════════════════════════ -->
+  <nav class="sidenav" aria-label="Page sections">
+    <div class="sidenav-label">Contents</div>
+    <ul>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+    </ul>
+  </nav>
+
 <div class="page">
 
   <!-- ══ HEADER ══════════════════════════════════════════ -->
@@ -459,12 +538,11 @@
   </header>
 
   <!-- ══ SUMMARY ══════════════════════════════════════════ -->
-  <div class="summary">
+  <div class="summary" id="summary">
     Project Leader at Bain &amp; Co. with 5+ years across general consulting, PE/VC due diligence, corporate finance advisory, and digital transformation. Track record of leading capital markets diligences, public equities research across O&amp;G, consumer, fintech, and e-commerce, and building internal AI products deployed globally.
   </div>
 
-  <!-- ══ EXPERIENCE ════════════════════════════════════════ -->
-  <section>
+  <section id="experience">
     <p class="section-label">Experience</p>
     <hr class="section-rule">
 
@@ -472,7 +550,7 @@
     <div class="exp-block">
       <div class="exp-header">
         <div>
-          <div class="exp-title"><span class="exp-company">Bain &amp; Co.</span> - Project Leader</div>
+          <div class="exp-title"><span class="exp-company">Bain &amp; Co.</span> — Project Leader</div>
           <span class="exp-badge">PROMOTED ACROSS ALL CYCLES · TOP ~10% OUTPERFORMER</span>
         </div>
         <div class="exp-date">Apr 2021 – Present</div>
@@ -482,10 +560,10 @@
       <div class="role-section">
         <div class="role-section-title">Corporate Finance Advisory</div>
         <ul class="items">
-          <li>Led ~5-person teams delivering capital markets diligences for 50+ listed companies across O&amp;G, hospitality, software, and healthcare - outputs presented directly to Chairmen, CFOs, and boards.</li>
+          <li>Led ~5-person teams delivering capital markets diligences for 50+ listed companies across O&amp;G, hospitality, software, and healthcare — outputs presented directly to Chairmen, CFOs, and boards.</li>
           <li>Built end-to-end TSR attribution framework: decomposed historical TSR into revenue growth, margin expansion, and multiple re-rating; modelled forward expectations using analyst consensus (CapIQ / Refinitiv), proprietary assumptions, and management guidance.</li>
-          <li>Developed Bain's O&amp;G sector capital markets IP - an industry-wide TSR benchmarking study across 25+ integrated, refinery, and upstream peers; published external PoV <a href="https://www.bain.com/insights/positioning-oil-and-gas-companies-for-todays-capital-markets/" target="_blank" rel="noopener"><em>"Positioning Oil &amp; Gas Companies for Today's Capital Markets"</em></a> (Dec 2025).</li>
-          <li>Built Bain's AI-powered equity research platform integrating proprietary Python automation (Factiva API, Refinitiv IR) for capital markets, TSR diagnostics, and investor-base analytics at scale - now adopted across multiple Bain teams globally.</li>
+          <li>Developed Bain's O&amp;G sector capital markets IP — an industry-wide TSR benchmarking study across 25+ integrated, refinery, and upstream peers; published external PoV <a href="https://www.bain.com/insights/positioning-oil-and-gas-companies-for-todays-capital-markets/" target="_blank" rel="noopener"><em>"Positioning Oil &amp; Gas Companies for Today's Capital Markets"</em></a> (Dec 2025).</li>
+          <li>Built Bain's AI-powered equity research platform integrating proprietary Python automation (Factiva API, Refinitiv IR) for capital markets, TSR diagnostics, and investor-base analytics at scale — now adopted across multiple Bain teams globally.</li>
         </ul>
 
         <div class="engagements">
@@ -511,7 +589,7 @@
           </div>
           <div class="engagement-card">
             <div class="eng-name">Global Hospitality Leader (HLT)</div>
-            <p>Delivered an outside-in investor perspective diligence for a leading global hospitality platform; identified two key re-rating levers - sustaining NUG leadership through conversion-focused strategy in luxury/upper-upscale, and improving RevPAR and owned/leased margin by optimizing media spend efficiency (player trailed peers in impressions per dollar despite leading in absolute spend).</p>
+            <p>Delivered an outside-in investor perspective diligence for a leading global hospitality platform; identified two key re-rating levers — sustaining NUG leadership through conversion-focused strategy in luxury/upper-upscale, and improving RevPAR and owned/leased margin by optimizing media spend efficiency (player trailed peers in impressions per dollar despite leading in absolute spend).</p>
           </div>
         </div>
       </div>
@@ -522,7 +600,7 @@
         <ul class="items">
           <li>Led team of 4 analysts across 50+ global PE/VC due diligences for $1B+ AUM funds in consumer durables, fintech, crypto/blockchain, SaaS, and e-mobility.</li>
           <li>Automated Glassdoor review scraping via Python and benchmarked portfolio asset performance on talent and compensation.</li>
-          <li>Led end-to-end setup of UAE e-pharma business (<em>Project Leap</em>) for a major listed Indian healthcare client (Aster DM) over ~12 months in Dubai - drove 2.5× revenue growth to ~AED 250M through biweekly on-site sprints.</li>
+          <li>Led end-to-end setup of UAE e-pharma business (<em>Project Leap</em>) for a major listed Indian healthcare client (Aster DM) over ~12 months in Dubai — drove 2.5× revenue growth to ~AED 250M through biweekly on-site sprints.</li>
           <li>Defined full e-pharmacy strategy covering where-to-play choices (geo, customer, payer), value proposition (product discovery, delivery SLAs, Rx fulfilment), and go-to-market model including aggregator partnership strategy.</li>
           <li>Owned category and assortment build-out: identified 200+ brands (~4,200 SKUs) for onboarding across OTC, BPC, and VMS categories; built pricing analytics benchmarking top-seller availability and price gaps vs. peers (800Pharmacy, BinSina, Life).</li>
           <li>Built assortment analytics infrastructure and a P&L model for category-level revenue and margin tracking; set up operational KPIs spanning fill rates, delivery SLA adherence, and Rx fulfilment TAT.</li>
@@ -534,7 +612,7 @@
     <div class="exp-block">
       <div class="exp-header">
         <div>
-          <div class="exp-title"><span class="exp-company">Deloitte Consulting</span> - FDD Analyst</div>
+          <div class="exp-title"><span class="exp-company">Deloitte Consulting</span> — FDD Analyst</div>
         </div>
         <div class="exp-date">May 2019 – Apr 2020</div>
       </div>
@@ -548,8 +626,7 @@
     </div>
   </section>
 
-  <!-- ══ EDUCATION ═════════════════════════════════════════ -->
-  <section>
+  <section id="education">
     <p class="section-label">Education</p>
     <hr class="section-rule">
     <div class="edu-grid">
@@ -576,8 +653,7 @@
     </div>
   </section>
 
-  <!-- ══ WRITING CALLOUT ══════════════════════════════════ -->
-  <section>
+  <section id="writing">
     <p class="section-label">Writing &amp; Analysis</p>
     <hr class="section-rule">
     <a href="https://aakashkathuria.wordpress.com/2015/09/12/inconsistencies-within-indian-education/" target="_blank" rel="noopener" class="writing-card">
@@ -587,14 +663,13 @@
           <span class="writing-date">Sep 2015</span>
         </div>
         <div class="writing-title">Inconsistencies Within Indian Education</div>
-        <div class="writing-hook">Crawled the CBSE national results database and found a striking anomaly: across every subject, scores of exactly 95 appeared at <em>more than 3× the expected frequency</em> - a statistical signature pointing to systematic examiner behaviour, not student performance.</div>
+        <div class="writing-hook">Crawled the CBSE national results database and found a striking anomaly: across every subject, scores of exactly 95 appeared at <em>more than 3× the expected frequency</em> — a statistical signature pointing to systematic examiner behaviour, not student performance.</div>
         <div class="writing-cta">Read the analysis →</div>
       </div>
     </a>
   </section>
 
-  <!-- ══ SKILLS ════════════════════════════════════════════ -->
-  <section>
+  <section id="skills">
     <p class="section-label">Skills &amp; Tools</p>
     <hr class="section-rule">
     <div class="tags">
@@ -616,8 +691,7 @@
     </div>
   </section>
 
-  <!-- ══ ACHIEVEMENTS ══════════════════════════════════════ -->
-  <section>
+  <section id="achievements">
     <p class="section-label">Achievements</p>
     <hr class="section-rule">
     <div class="ach-cards">
@@ -628,7 +702,7 @@
             <span class="ach-tag">Sports</span>
             <span class="ach-date">2014</span>
           </div>
-          <div class="ach-title">Asian Games - Indian Contingent</div>
+          <div class="ach-title">Asian Games — Indian Contingent</div>
           <div class="ach-body">National Speed Skating Championship (RSFI): Silver Medal (2012); Haryana State Champion representing Gurgaon (2011–12).</div>
         </div>
       </a>
@@ -639,7 +713,7 @@
             <span class="ach-tag">Recognition</span>
             <span class="ach-date">2015</span>
           </div>
-          <div class="ach-title">Times of India - Student of the Year</div>
+          <div class="ach-title">Times of India — Student of the Year</div>
           <div class="ach-body">Recognised for national-level position in sports and outstanding academics.</div>
         </div>
       </div>
@@ -651,13 +725,32 @@
             <span class="ach-date">2015</span>
           </div>
           <div class="ach-title">School Topper &amp; Full Scholarship</div>
-          <div class="ach-body">Topped 12th grade (95%) and 10th grade - granted full tuition scholarship.</div>
+          <div class="ach-body">Topped 12th grade (95%) and 10th grade — granted full tuition scholarship.</div>
         </div>
       </div>
 
     </div>
   </section>
 
-</div>
+</div><!-- .page -->
+</div><!-- .outer -->
+
+<script>
+  const navLinks = document.querySelectorAll('.sidenav a');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href')));
+
+  function onScroll() {
+    let current = sections[0];
+    sections.forEach(sec => {
+      if (sec && window.scrollY >= sec.offsetTop - 120) current = sec;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current?.id);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
 </body>
 </html>
