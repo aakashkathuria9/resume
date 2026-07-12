@@ -293,6 +293,77 @@
       top: 6px;
     }
 
+    /* ── WRITING CALLOUT ──────────────────────────────────── */
+    .writing-card {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent2);
+      padding: 22px 26px;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .writing-card:hover {
+      border-color: var(--accent);
+      border-left-color: var(--accent);
+      box-shadow: 0 4px 18px rgba(26,61,110,0.08);
+      transform: translateY(-2px);
+    }
+
+    .writing-card-inner { display: flex; flex-direction: column; gap: 8px; }
+
+    .writing-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .writing-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent2);
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+
+    .writing-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .writing-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .writing-hook {
+      font-size: 0.93rem;
+      color: #3a3f4d;
+      line-height: 1.65;
+      max-width: 680px;
+    }
+
+    .writing-cta {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      margin-top: 4px;
+    }
+
+    .writing-card:hover .writing-cta {
+      color: var(--accent2);
+    }
+
     /* ── SKILLS / TAGS ────────────────────────────────────── */
     .tags {
       display: flex;
@@ -462,6 +533,23 @@
         <div class="score">95% · 2015</div>
       </div>
     </div>
+  </section>
+
+  <!-- ══ WRITING CALLOUT ══════════════════════════════════ -->
+  <section>
+    <p class="section-label">Writing &amp; Analysis</p>
+    <hr class="section-rule">
+    <a href="https://aakashkathuria.wordpress.com/2015/09/12/inconsistencies-within-indian-education/" target="_blank" rel="noopener" class="writing-card">
+      <div class="writing-card-inner">
+        <div class="writing-meta">
+          <span class="writing-tag">Data Analysis</span>
+          <span class="writing-date">Sep 2015</span>
+        </div>
+        <div class="writing-title">Inconsistencies Within Indian Education</div>
+        <div class="writing-hook">Crawled the CBSE national results database and found a striking anomaly: across every subject, scores of exactly 95 appeared at <em>more than 3× the expected frequency</em> — a statistical signature pointing to systematic examiner behaviour, not student performance.</div>
+        <div class="writing-cta">Read the analysis →</div>
+      </div>
+    </a>
   </section>
 
   <!-- ══ SKILLS ════════════════════════════════════════════ -->
