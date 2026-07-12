@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aakash Kathuria — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKEN SYSTEM ─────────────────────────────────────── */
+    :root {
+      --ink:      #0f1117;
+      --muted:    #5a5f6e;
+      --rule:     #d4d7df;
+      --accent:   #1a3d6e;   /* deep navy — finance/consulting weight */
+      --accent2:  #c8a96e;   /* antique gold — prestige signal */
+      --surface:  #f7f6f3;
+      --white:    #ffffff;
+      --mono:     'DM Mono', monospace;
+      --serif:    'EB Garamond', Georgia, serif;
+      --sans:     'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ───────────────────────────────────────────── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── HEADER ───────────────────────────────────────────── */
+    .header {
+      padding: 64px 0 40px;
+      border-bottom: 2px solid var(--accent);
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--accent2);
+    }
+
+    .name {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .contact-bar {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .contact-bar a, .contact-bar span {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.4px;
+    }
+    .contact-bar a:hover { color: var(--accent); }
+    .contact-bar .sep { color: var(--rule); }
+
+    /* ── SUMMARY STRIP ────────────────────────────────────── */
+    .summary {
+      background: var(--surface);
+      border-left: 3px solid var(--accent2);
+      padding: 20px 24px;
+      margin: 40px 0 0;
+      font-family: var(--serif);
+      font-size: 1.07rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* ── SECTION ──────────────────────────────────────────── */
+    section {
+      margin-top: 52px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 18px;
+    }
+
+    .section-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 28px;
+    }
+
+    /* ── EXPERIENCE BLOCK ─────────────────────────────────── */
+    .exp-block {
+      margin-bottom: 40px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exp-title {
+      font-family: var(--serif);
+      font-size: 1.22rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .exp-company {
+      color: var(--accent);
+    }
+
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.8px;
+      padding: 2px 8px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 2px;
+      margin-top: 6px;
+    }
+
+    /* sub-section within a role */
+    .role-section {
+      margin-top: 18px;
+    }
+
+    .role-section-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .items > li {
+      padding: 5px 0 5px 18px;
+      position: relative;
+      font-size: 0.93rem;
+      color: #282c38;
+      border-bottom: 1px dashed transparent;
+    }
+
+    .items > li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-weight: 300;
+    }
+
+    /* engagement tiles */
+    .engagements {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .engagement-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-top: 2px solid var(--accent);
+      padding: 14px 16px;
+    }
+
+    .engagement-card .eng-name {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .engagement-card p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── EDUCATION ────────────────────────────────────────── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .edu-cell {
+      background: var(--white);
+      padding: 14px 18px;
+    }
+
+    .edu-cell .qual {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .edu-cell .inst {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .edu-cell .score {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent2);
+      margin-top: 4px;
+    }
+
+    /* ── ACHIEVEMENTS ─────────────────────────────────────── */
+    .ach-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ach-list li {
+      padding-left: 20px;
+      position: relative;
+      font-size: 0.93rem;
+    }
+
+    .ach-list li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-size: 0.55rem;
+      top: 6px;
+    }
+
+    /* ── SKILLS / TAGS ────────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      letter-spacing: 0.3px;
+    }
+
+    .tag.highlight {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── PRINT / RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 600px) {
+      .engagements { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .exp-header { flex-direction: column; }
+    }
+
+    @media print {
+      body { font-size: 11px; }
+      .page { padding: 0 12px 20px; }
+      .header { padding: 24px 0 20px; }
+      section { margin-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HEADER ══════════════════════════════════════════ -->
+  <header class="header">
+    <h1 class="name">Aakash <em>Kathuria</em></h1>
+    <p class="tagline">Project Leader · Bain & Co. · Corporate Finance, PE/VC, AI Products</p>
+    <div class="contact-bar">
+      <a href="mailto:aakashkathuria006@gmail.com">aakashkathuria006@gmail.com</a>
+      <span class="sep">|</span>
+      <span>+91-9899509812</span>
+    </div>
+  </header>
+
+  <!-- ══ SUMMARY ══════════════════════════════════════════ -->
+  <div class="summary">
+    Project Leader at Bain &amp; Co. with 5+ years across general consulting, PE/VC due diligence, corporate finance advisory, and digital transformation. Track record of leading capital markets diligences, public equities research across O&amp;G, consumer, fintech, and e-commerce, and building internal AI products deployed globally.
+  </div>
+
+  <!-- ══ EXPERIENCE ════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Experience</p>
+    <hr class="section-rule">
+
+    <!-- Bain -->
+    <div class="exp-block">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title"><span class="exp-company">Bain &amp; Co.</span> — Project Leader</div>
+          <span class="exp-badge">PROMOTED ACROSS ALL CYCLES · TOP ~10% OUTPERFORMER</span>
+        </div>
+        <div class="exp-date">Apr 2021 – Present</div>
+      </div>
+
+      <!-- Corporate Finance -->
+      <div class="role-section">
+        <div class="role-section-title">Corporate Finance Advisory</div>
+        <ul class="items">
+          <li>Led ~5-person teams delivering capital markets diligences for 50+ listed companies across O&amp;G, hospitality, software, and healthcare — outputs presented directly to Chairmen, CFOs, and boards.</li>
+          <li>Built end-to-end TSR attribution framework: decomposed historical TSR into revenue growth, margin expansion, and multiple re-rating; modelled forward expectations using analyst consensus (CapIQ / Refinitiv), proprietary assumptions, and management guidance.</li>
+          <li>Developed Bain's O&amp;G sector capital markets IP — an industry-wide TSR benchmarking study across 25+ integrated, refinery, and upstream peers; published external PoV <em>"Positioning Oil &amp; Gas Companies for Today's Capital Markets"</em> (Dec 2025).</li>
+          <li>Built Bain's AI-powered equity research platform integrating proprietary Python automation (Factiva API, Refinitiv IR) for capital markets, TSR diagnostics, and investor-base analytics at scale — now adopted across multiple Bain teams globally.</li>
+        </ul>
+
+        <div class="engagements">
+          <div class="engagement-card">
+            <div class="eng-name">O&amp;G Upstream / Mid-stream Player</div>
+            <p>Developed four-pillar narrative reframing strategy spanning operational execution, management systems, balance sheet repositioning, and investor targeting anchored to a credible 3–5-year capital allocation roadmap.</p>
+          </div>
+          <div class="engagement-card">
+            <div class="eng-name">Global Rare Disease Pharma</div>
+            <p>Developed TSR recovery strategy across investor base repositioning, Isturisa execution de-risking, and value-accretive M&amp;A as a re-rating lever.</p>
+          </div>
+          <div class="engagement-card">
+            <div class="eng-name">Mid-size IT Services (Hex)</div>
+            <p>Diagnosed post-IPO TSR underperformance; decomposed TSR across six drivers vs. 12 peers and framed re-rating case around topline recovery and margin expansion against GenAI and H-1B headwind backdrop.</p>
+          </div>
+          <div class="engagement-card">
+            <div class="eng-name">Global Medtech &amp; Diagnostics (GEH)</div>
+            <p>Developed two-track recovery framework spanning growth acceleration (new product ramp, R&amp;D uplift) and margin recovery (China de-risking, imaging margin improvement, cost productivity).</p>
+          </div>
+          <div class="engagement-card">
+            <div class="eng-name">Saudi National Mining Champion (MDN)</div>
+            <p>Diagnosed TSR deterioration from #2 globally to #15 of 17 peers; designed three-priority recovery plan unlocking $1B+ from cash cycle, improving ROIC, and building investor narrative for $100B+ financing ambition.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PE DDs -->
+      <div class="role-section">
+        <div class="role-section-title">Private Equity DDs &amp; CDDs</div>
+        <ul class="items">
+          <li>Led team of 4 analysts across 50+ global PE/VC due diligences for $1B+ AUM funds in consumer durables, fintech, crypto/blockchain, SaaS, and e-mobility.</li>
+          <li>Automated Glassdoor review scraping via Python and benchmarked portfolio asset performance on talent and compensation.</li>
+          <li>Helped set up UAE e-pharma business for a major listed Indian healthcare client over ~12 months in Dubai — drove 2.5× revenue growth to ~AED 250M; identified 200+ brands (~4,200 SKUs) for onboarding and built assortment analytics.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Deloitte -->
+    <div class="exp-block">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title"><span class="exp-company">Deloitte Consulting</span> — FDD Analyst</div>
+        </div>
+        <div class="exp-date">May 2019 – Apr 2020</div>
+      </div>
+      <ul class="items" style="margin-top:14px">
+        <li>Conducted financial forensic investigations and due diligences for ARCs, PSUs, and social impact organisations.</li>
+        <li><strong>ARC buyout (Steel Co):</strong> Analysed ~$10M related-party loan book; traced potential fund diversion via circular loan transactions.</li>
+        <li><strong>West Bengal Land Revenue:</strong> Built fraud detection model leveraging real estate pricing; pruned tax revenue land classifications from 342 to 33 using scientific methodologies.</li>
+        <li><strong>Rajasthan Indirect Tax Evasion:</strong> Identified 900+ potential shell companies with accumulated ITC ~INR 320 Cr. employing circular trading.</li>
+        <li>Awarded <em>Star of the Quarter</em> among 150+ joiners in first quarter.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ EDUCATION ═════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Education</p>
+    <hr class="section-rule">
+    <div class="edu-grid">
+      <div class="edu-cell">
+        <div class="qual">CFA – Level 1</div>
+        <div class="inst">CFA Institute</div>
+        <div class="score">2021</div>
+      </div>
+      <div class="edu-cell">
+        <div class="qual">CA-IPCC</div>
+        <div class="inst">Institute of Chartered Accountants of India</div>
+        <div class="score">61% · 2019</div>
+      </div>
+      <div class="edu-cell">
+        <div class="qual">B.Com (Honours)</div>
+        <div class="inst">Delhi University</div>
+        <div class="score">7.5 CGPA · 2018</div>
+      </div>
+      <div class="edu-cell">
+        <div class="qual">12th Grade</div>
+        <div class="inst">DPS Gurgaon</div>
+        <div class="score">95% · 2015</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Skills &amp; Tools</p>
+    <hr class="section-rule">
+    <div class="tags">
+      <span class="tag highlight">TSR Frameworks</span>
+      <span class="tag highlight">Capital Markets Advisory</span>
+      <span class="tag highlight">PE / VC Due Diligence</span>
+      <span class="tag highlight">AI Product Development</span>
+      <span class="tag">Python</span>
+      <span class="tag">Factiva API</span>
+      <span class="tag">Refinitiv / CapIQ</span>
+      <span class="tag">Financial Modelling</span>
+      <span class="tag">Investor Strategy</span>
+      <span class="tag">M&amp;A Advisory</span>
+      <span class="tag">Corporate Finance</span>
+      <span class="tag">Forensic Due Diligence</span>
+      <span class="tag">O&amp;G Sector</span>
+      <span class="tag">Fintech / SaaS</span>
+      <span class="tag">E-commerce</span>
+    </div>
+  </section>
+
+  <!-- ══ ACHIEVEMENTS ══════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Achievements</p>
+    <hr class="section-rule">
+    <ul class="ach-list">
+      <li>Part of Indian contingent, Asian Games 2014 — National Speed Skating Championship (RSFI): Silver Medal (2012); Haryana State Champion representing Gurgaon (2011–12).</li>
+      <li>Times of India <em>Student of the Year Award</em> — recognised for national-level position in sports and outstanding academics.</li>
+      <li>School Topper, 12th grade (95%) and 10th grade — granted full tuition scholarship.</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
